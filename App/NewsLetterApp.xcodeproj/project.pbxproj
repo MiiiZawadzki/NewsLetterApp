@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901427E72599184F006A02B8 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901427E52599184F006A02B8 /* NewsCell.swift */; };
+		901427E82599184F006A02B8 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 901427E62599184F006A02B8 /* NewsCell.xib */; };
 		90255BF7257453D0003EF612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90255BF6257453D0003EF612 /* Assets.xcassets */; };
 		90357910256BBB2500B2BC43 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9035790F256BBB2500B2BC43 /* NewsManager.swift */; };
 		90486F472561BB64009145D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90486F462561BB64009145D1 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		901427E52599184F006A02B8 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		901427E62599184F006A02B8 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		90255BF6257453D0003EF612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9035790F256BBB2500B2BC43 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		90486F432561BB64009145D1 /* NewsLetterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsLetterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,8 @@
 			children = (
 				90486F4C2561BB64009145D1 /* Main.storyboard */,
 				90486F512561BB65009145D1 /* LaunchScreen.storyboard */,
+				901427E52599184F006A02B8 /* NewsCell.swift */,
+				901427E62599184F006A02B8 /* NewsCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 			files = (
 				90486F532561BB65009145D1 /* LaunchScreen.storyboard in Resources */,
 				90255BF7257453D0003EF612 /* Assets.xcassets in Resources */,
+				901427E82599184F006A02B8 /* NewsCell.xib in Resources */,
 				90486F4E2561BB64009145D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90DD2AE8256C24770032A09D /* NewsModel.swift in Sources */,
+				901427E72599184F006A02B8 /* NewsCell.swift in Sources */,
 				907C67A825685B6E00D4934E /* NewsListViewController.swift in Sources */,
 				90486F4B2561BB64009145D1 /* SearchViewController.swift in Sources */,
 				90D814962564776D00F8B4A8 /* PickViewController.swift in Sources */,

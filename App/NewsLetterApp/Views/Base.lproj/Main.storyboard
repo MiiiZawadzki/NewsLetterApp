@@ -315,19 +315,20 @@
                                             <constraint firstItem="N2N-O2-6GT" firstAttribute="leading" secondItem="cUT-X4-wAR" secondAttribute="leading" constant="20" id="gpY-yI-ntd"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr0-eI-xDC" userLabel="ScrollView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr0-eI-xDC" userLabel="TableView">
                                         <rect key="frame" x="0.0" y="70" width="414" height="748"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="18g-5g-Ncx">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8lg-3G-8qr">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="748"/>
-                                            </scrollView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="18g-5g-Ncx" firstAttribute="top" secondItem="Pr0-eI-xDC" secondAttribute="top" id="1hK-YO-eCF"/>
-                                            <constraint firstItem="18g-5g-Ncx" firstAttribute="leading" secondItem="Pr0-eI-xDC" secondAttribute="leading" id="5Zr-Yg-Oem"/>
-                                            <constraint firstAttribute="trailing" secondItem="18g-5g-Ncx" secondAttribute="trailing" id="Hjq-13-dad"/>
-                                            <constraint firstAttribute="bottom" secondItem="18g-5g-Ncx" secondAttribute="bottom" id="Inh-dd-ZmC"/>
+                                            <constraint firstItem="8lg-3G-8qr" firstAttribute="leading" secondItem="Pr0-eI-xDC" secondAttribute="leading" id="FRa-dZ-20S"/>
+                                            <constraint firstItem="8lg-3G-8qr" firstAttribute="top" secondItem="Pr0-eI-xDC" secondAttribute="top" id="JSL-Yf-nk7"/>
+                                            <constraint firstAttribute="bottom" secondItem="8lg-3G-8qr" secondAttribute="bottom" id="QBk-gI-RFT"/>
+                                            <constraint firstAttribute="trailing" secondItem="8lg-3G-8qr" secondAttribute="trailing" id="c0I-9j-SLc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -353,7 +354,7 @@
                     </view>
                     <connections>
                         <outlet property="GoBackButton" destination="N2N-O2-6GT" id="A7D-Zh-HQb"/>
-                        <outlet property="NewsScrollView" destination="18g-5g-Ncx" id="e5y-Hj-CTC"/>
+                        <outlet property="NewsTableView" destination="8lg-3G-8qr" id="O63-mV-8dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6b-So-EGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

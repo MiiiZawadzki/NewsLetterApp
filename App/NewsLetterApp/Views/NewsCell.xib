@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReuseableNewsCell" rowHeight="386" id="KGk-i7-Jjw" customClass="NewsCell" customModule="NewsLetterApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="386"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="434" height="386"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-y7-C66">
+                        <rect key="frame" x="5" y="5" width="424" height="381"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wdr-CO-VzA">
+                                <rect key="frame" x="0.0" y="0.0" width="424" height="381"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7G-TS-z2a" userLabel="TitleView">
+                                        <rect key="frame" x="0.0" y="0.0" width="424" height="57"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4db-V2-AuZ" userLabel="TitleLabel">
+                                                <rect key="frame" x="20" y="5" width="384" height="47"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4db-V2-AuZ" secondAttribute="bottom" constant="5" id="I4v-oi-yzu"/>
+                                            <constraint firstItem="4db-V2-AuZ" firstAttribute="leading" secondItem="t7G-TS-z2a" secondAttribute="leading" constant="20" id="ZFI-w9-ngu"/>
+                                            <constraint firstAttribute="trailing" secondItem="4db-V2-AuZ" secondAttribute="trailing" constant="20" id="kW2-VJ-Cu8"/>
+                                            <constraint firstItem="4db-V2-AuZ" firstAttribute="top" secondItem="t7G-TS-z2a" secondAttribute="top" constant="5" id="zKp-Xz-GVL"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdb-fJ-dpe" userLabel="SummaryView">
+                                        <rect key="frame" x="0.0" y="57" width="424" height="267"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb5-Dc-smS" userLabel="SummaryLabel">
+                                                <rect key="frame" x="20" y="5" width="384" height="257"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Xb5-Dc-smS" firstAttribute="leading" secondItem="Tdb-fJ-dpe" secondAttribute="leading" constant="20" id="0Dg-Dw-Jc3"/>
+                                            <constraint firstItem="Xb5-Dc-smS" firstAttribute="top" secondItem="Tdb-fJ-dpe" secondAttribute="top" constant="5" id="G0r-et-clP"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xb5-Dc-smS" secondAttribute="trailing" constant="20" id="SRT-QA-1vS"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xb5-Dc-smS" secondAttribute="bottom" constant="5" id="yl0-fD-ARp"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-c1-CEd" userLabel="SourceView">
+                                        <rect key="frame" x="0.0" y="324" width="424" height="57"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s14-q9-wUh">
+                                                <rect key="frame" x="20" y="5" width="384" height="47"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="s14-q9-wUh" secondAttribute="bottom" constant="5" id="YLI-RB-Zks"/>
+                                            <constraint firstItem="s14-q9-wUh" firstAttribute="top" secondItem="Abc-c1-CEd" secondAttribute="top" constant="5" id="eO6-Nt-FEz"/>
+                                            <constraint firstAttribute="trailing" secondItem="s14-q9-wUh" secondAttribute="trailing" constant="20" id="hci-mL-QiI"/>
+                                            <constraint firstItem="s14-q9-wUh" firstAttribute="leading" secondItem="Abc-c1-CEd" secondAttribute="leading" constant="20" id="tdG-9s-x1y"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tdb-fJ-dpe" firstAttribute="centerY" secondItem="Wdr-CO-VzA" secondAttribute="centerY" id="hNE-Fm-qtq"/>
+                                    <constraint firstItem="Tdb-fJ-dpe" firstAttribute="top" secondItem="Wdr-CO-VzA" secondAttribute="top" constant="57" id="qod-Ju-ZBz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29562968989999999" green="1" blue="0.51803450439999998" alpha="0.58467209499999995" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Wdr-CO-VzA" secondAttribute="bottom" id="8mB-nY-ZyR"/>
+                            <constraint firstItem="Wdr-CO-VzA" firstAttribute="top" secondItem="ze3-y7-C66" secondAttribute="top" id="UsX-gp-uZD"/>
+                            <constraint firstItem="Wdr-CO-VzA" firstAttribute="leading" secondItem="ze3-y7-C66" secondAttribute="leading" id="jj2-8z-86Q"/>
+                            <constraint firstAttribute="trailing" secondItem="Wdr-CO-VzA" secondAttribute="trailing" id="syl-Mk-3GM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ze3-y7-C66" secondAttribute="bottom" id="9WU-Xa-1SD"/>
+                    <constraint firstItem="ze3-y7-C66" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PyY-cX-4bC"/>
+                    <constraint firstItem="ze3-y7-C66" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Tcw-5g-unK"/>
+                    <constraint firstAttribute="trailing" secondItem="ze3-y7-C66" secondAttribute="trailing" constant="5" id="bG4-EK-rjv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="MainView" destination="ze3-y7-C66" id="0KE-Sx-LJh"/>
+                <outlet property="SourceLabel" destination="s14-q9-wUh" id="Esi-GV-3He"/>
+                <outlet property="SummaryLabel" destination="Xb5-Dc-smS" id="wWz-ys-X4r"/>
+                <outlet property="TitleLabel" destination="4db-V2-AuZ" id="9mm-6a-Be5"/>
+            </connections>
+            <point key="canvasLocation" x="223.18840579710147" y="187.5"/>
+        </tableViewCell>
+    </objects>
+</document>
