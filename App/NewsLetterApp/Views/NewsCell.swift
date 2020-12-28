@@ -1,10 +1,3 @@
-//
-//  NewsCell.swift
-//  NewsLetterApp
-//
-//  Created by Michał on 27/12/2020.
-//
-
 import UIKit
 
 class NewsCell: UITableViewCell {
@@ -20,8 +13,6 @@ class NewsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

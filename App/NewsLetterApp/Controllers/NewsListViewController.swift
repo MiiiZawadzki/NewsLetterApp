@@ -3,6 +3,7 @@ import UIKit
 class NewsListViewController: UIViewController {
     @IBOutlet weak var NewsTableView: UITableView!
     @IBOutlet weak var GoBackButton: UIButton!
+    @IBOutlet weak var TableView: UIView!
     var topic: String?
     var vcString: Bool = false
     // Back to previous view
@@ -23,11 +24,9 @@ class NewsListViewController: UIViewController {
         
         GoBackButton.layer.cornerRadius = 10
         
-        NewsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "ReuseableNewsCell")
-        
         // set language parameter in urlRequest
         newsManager.SetLang(lang: lang!)
-        NewsTableView.dataSource = self
+        
         newsManager.delegate = self
         
         // if searching with given string perform Request
@@ -42,35 +41,57 @@ class NewsListViewController: UIViewController {
             let request = newsManager.PrepareSearchTopicRequest()
             newsManager.PerformRequest(for: request)
         }
+        
+        // set table view options
+        NewsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "ReuseableNewsCell")
+        NewsTableView.dataSource = self
+        
+    }
+}
+extension NewsListViewController: NewsManagerDelegate{
+    // function called when data is fetched
+    func didFetchNews(data: NewsModel){
+        DispatchQueue.main.sync {
+            self.newsModel = data
+            self.NewsTableView.reloadData()
+        }
+    }
+    // function called when error is fetched
+    func didGetError() {
+        DispatchQueue.main.async {
+            let errorLabel = UILabel(frame: CGRect(x: 10, y: 10, width: Int(self.view.frame.width-40), height: 40))
+            errorLabel.text = self.lang == "en" ? "There is nothing here :(" : "Nic tu nie ma :("
+            errorLabel.font = UIFont.init(name: "Hiragino Mincho ProN W3", size: 17)!
+            self.TableView.addSubview(errorLabel)
+            errorLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                errorLabel.centerXAnchor.constraint(equalTo: self.TableView.centerXAnchor)
+                
+            ])
+        }
     }
 }
 extension NewsListViewController: UITableViewDataSource{
+    // Return count of NewsModel article
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if let safeModel = newsModel{
+            return safeModel.articles.count
+        }
+        else{
+            return 0
+        }
     }
     
+    // Return created cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReuseableNewsCell", for: indexPath) as! NewsCell
-        cell.TitleLabel.text = "Test Title"
-        cell.SummaryLabel.text = "Test SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest SummaryTest Summary"
-        cell.SourceLabel.text = "Test SourceTest SourceTest SourceTest SourceTest SourceTest Source"
-
+        if let safeModel = newsModel{
+            cell.TitleLabel.text = safeModel.articles[indexPath.row].title
+            cell.SummaryLabel.text = safeModel.articles[indexPath.row].summary
+            cell.SourceLabel.text = safeModel.articles[indexPath.row].clean_url
+        }
         return cell
     }
 }
 
-extension NewsListViewController: NewsManagerDelegate{
-    // function called when data is fetched
-    func didFetchNews(data: NewsModel){
-        // transform NewsModel into dict
-        let dict = data.ConvertModelToDict()
-        DispatchQueue.main.sync {
-//            self.fullHeight = PrepareFullHeight(dict: dict)
-//            self.NewsScrollView.contentSize = CGSize(width: 375, height: fullHeight! + 100)
-//            self.PrepareUI(dict: dict)
-        }
-    }
-    func didGetError() {
-//        self.PrepareErrorUI()
-    }
-}
+

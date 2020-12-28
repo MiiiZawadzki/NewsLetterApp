@@ -355,6 +355,7 @@
                     <connections>
                         <outlet property="GoBackButton" destination="N2N-O2-6GT" id="A7D-Zh-HQb"/>
                         <outlet property="NewsTableView" destination="8lg-3G-8qr" id="O63-mV-8dl"/>
+                        <outlet property="TableView" destination="Pr0-eI-xDC" id="nTj-DQ-rHo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6b-So-EGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
