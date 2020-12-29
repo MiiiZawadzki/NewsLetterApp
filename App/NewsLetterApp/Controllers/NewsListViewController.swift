@@ -88,7 +88,8 @@ extension NewsListViewController: UITableViewDataSource{
         if let safeModel = newsModel{
             cell.TitleLabel.text = safeModel.articles[indexPath.row].title
             cell.SummaryLabel.text = safeModel.articles[indexPath.row].summary
-            cell.SourceLabel.text = safeModel.articles[indexPath.row].clean_url
+            cell.SourceLabel.text = "via: "+safeModel.articles[indexPath.row].clean_url
+            cell.DateLabel.text = safeModel.articles[indexPath.row].published_date
         }
         return cell
     }
