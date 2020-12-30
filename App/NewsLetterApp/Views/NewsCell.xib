@@ -19,19 +19,22 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-y7-C66">
                         <rect key="frame" x="5" y="5" width="424" height="381"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wdr-CO-VzA">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wdr-CO-VzA">
                                 <rect key="frame" x="0.0" y="0.0" width="424" height="381"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7G-TS-z2a" userLabel="TitleView">
-                                        <rect key="frame" x="0.0" y="0.0" width="424" height="100"/>
+                                        <rect key="frame" x="0.0" y="1" width="424" height="98"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4db-V2-AuZ" userLabel="TitleLabel">
-                                                <rect key="frame" x="20" y="20" width="384" height="56"/>
+                                                <rect key="frame" x="20" y="20" width="384" height="54"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBi-0c-Fxy" userLabel="DateLabel">
-                                                <rect key="frame" x="20" y="81" width="30.5" height="14"/>
+                                                <rect key="frame" x="20" y="79" width="30.5" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="aag-Fy-vyj"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -43,12 +46,11 @@
                                             <constraint firstItem="4db-V2-AuZ" firstAttribute="leading" secondItem="t7G-TS-z2a" secondAttribute="leading" constant="20" id="ZFI-w9-ngu"/>
                                             <constraint firstItem="fBi-0c-Fxy" firstAttribute="top" secondItem="4db-V2-AuZ" secondAttribute="bottom" constant="5" id="jHT-C4-5TB"/>
                                             <constraint firstAttribute="trailing" secondItem="4db-V2-AuZ" secondAttribute="trailing" constant="20" id="kW2-VJ-Cu8"/>
-                                            <constraint firstItem="fBi-0c-Fxy" firstAttribute="top" secondItem="4db-V2-AuZ" secondAttribute="bottom" constant="5" id="uus-Wa-Cmf"/>
                                             <constraint firstItem="4db-V2-AuZ" firstAttribute="top" secondItem="t7G-TS-z2a" secondAttribute="top" constant="20" id="zKp-Xz-GVL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdb-fJ-dpe" userLabel="SummaryView">
-                                        <rect key="frame" x="0.0" y="101" width="424" height="181"/>
+                                        <rect key="frame" x="0.0" y="100" width="424" height="181"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb5-Dc-smS" userLabel="SummaryLabel">
                                                 <rect key="frame" x="20" y="5" width="384" height="171"/>
@@ -64,10 +66,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-c1-CEd" userLabel="SourceView">
-                                        <rect key="frame" x="0.0" y="281" width="424" height="100"/>
+                                        <rect key="frame" x="0.0" y="282" width="424" height="99"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s14-q9-wUh">
-                                                <rect key="frame" x="20" y="5" width="384" height="75"/>
+                                                <rect key="frame" x="20" y="5" width="384" height="74"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -81,8 +83,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Tdb-fJ-dpe" firstAttribute="top" secondItem="t7G-TS-z2a" secondAttribute="bottom" constant="1" id="qod-Ju-ZBz"/>
-                                    <constraint firstItem="Abc-c1-CEd" firstAttribute="top" secondItem="Tdb-fJ-dpe" secondAttribute="bottom" constant="1" id="z1a-ah-P8p"/>
+                                    <constraint firstItem="t7G-TS-z2a" firstAttribute="top" secondItem="Wdr-CO-VzA" secondAttribute="top" constant="1" id="FuU-2N-n2T"/>
                                 </constraints>
                             </stackView>
                         </subviews>
