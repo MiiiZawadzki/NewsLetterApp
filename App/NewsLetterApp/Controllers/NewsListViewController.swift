@@ -1,20 +1,29 @@
 import UIKit
 
 class NewsListViewController: UIViewController {
+    
+    // UI elements
     @IBOutlet weak var NewsTableView: UITableView!
     @IBOutlet weak var GoBackButton: UIButton!
     @IBOutlet weak var TableView: UIView!
+    
+    // variable that stores the topic on which news are searched for
     var topic: String?
+    
+    // variable to handle changing between views controllers
     var vcString: Bool = false
+    
     // Back to previous view
     @IBAction func BackButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // NewsModel structs
     var newsManager = NewsManager()
     var newsModel: NewsModel?
+    
+    // variable to handle language change
     var lang: String?
-    var fullHeight:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +91,7 @@ extension NewsListViewController: UITableViewDataSource{
         }
     }
     
-    // Return created cells
+    // Return created cells with news data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReuseableNewsCell", for: indexPath) as! NewsCell
         if let safeModel = newsModel{

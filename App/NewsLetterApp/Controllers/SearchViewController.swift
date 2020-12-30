@@ -7,10 +7,11 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var OrLabel: UILabel!
     @IBOutlet weak var AlternativeTextLabel: UILabel!
     @IBOutlet weak var SearchTopicButton: UIButton!
-    var isLangEN = true
-    
     @IBOutlet weak var ColoredSearchView: UIView!
     @IBOutlet weak var LangSwitch: UISwitch!
+    
+    // variable to handle language change
+    var isLangEN = true
     
     // function called when language switch state changed
     @objc func LanguageSwitchValueChanged(_ switchState: UISwitch) {
@@ -34,6 +35,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // handle language switch changes
         SetSwitchState(state: isLangEN)
         LangSwitch.addTarget(self, action: #selector(LanguageSwitchValueChanged(_:)), for: .valueChanged)

@@ -1,7 +1,11 @@
 import UIKit
+
+// Topics names in English and Polish
 let topicsEN = ["News","Sport","Tech","World","Finance","Politics","Business","Economics","Entertainment"]
 let topicsPL = ["Wiadomości","Sport","Technologia","Świat","Finanse","Polityka","Biznes","Ekonomia","Rozrywka"]
+
 class PickViewController: UIViewController {
+    // UI elements
     @IBOutlet weak var TopicPicker: UIPickerView!
     @IBOutlet weak var SearchButton: UIButton!
     @IBOutlet weak var OrTextLabel: UILabel!
@@ -18,6 +22,7 @@ class PickViewController: UIViewController {
         self.performSegue(withIdentifier: "PickToSearch", sender: self)
     }
     
+    // variable to handle language change
     var lang:String?
     
     override func viewDidLoad() {
@@ -54,7 +59,7 @@ class PickViewController: UIViewController {
     }
 }
 
-// Handle picker views
+// Handle picker view
 extension PickViewController: UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

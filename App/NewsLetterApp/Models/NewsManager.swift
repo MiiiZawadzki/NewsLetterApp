@@ -1,14 +1,23 @@
 import Foundation
+
+// Protocol to handle fetching data / error from API
 protocol NewsManagerDelegate {
     func didFetchNews(data: NewsModel)
     func didGetError()
 }
+
 struct NewsManager {
+    // Base API URLs
     let baseSearchStringURL = "https://newscatcher.p.rapidapi.com/v1/search?"
     let baseSearchTopicURL = "https://newscatcher.p.rapidapi.com/v1/latest_headlines?"
+    
+    // Base request parameters
     var parametersSearchString = ["media": "True", "sort_by" : "relevancy", "lang" : "en", "page" : "1","q":"Iphone"]
     var parametersSearchTopic = ["media": "True", "lang" : "en","topic":"news"]
+    
+    // request authentication header
     let headers = ["x-rapidapi-key": RequestData.xRapidapiKey]
+    
     var delegate: NewsManagerDelegate?
     
     // functions setting news parameters
@@ -66,7 +75,7 @@ struct NewsManager {
     // function handling returned data from API
     func HandleRequest(data: Data?, response: URLResponse?, error: Error?){
         if error != nil {
-            return
+            delegate?.didGetError()
         }
         else{
             if let safeData = data{
