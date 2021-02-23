@@ -20,18 +20,23 @@ struct NewsManager {
     
     var delegate: NewsManagerDelegate?
     
-    // functions setting news parameters
-    mutating func SetSearchQParam(topic: String) {
-        self.parametersSearchString["q"] = topic
-    }
-    mutating func SetSearchTopicParam(topic: String) {
-        self.parametersSearchTopic["topic"] = topic
+    //MARK: - Setting request parameters
+    // function setting news parameters
+    mutating func SetSearchParam(type: String, topic: String) {
+        if type == "q" {
+            self.parametersSearchString[type] = topic
+        }
+        else{
+            self.parametersSearchTopic[type] = topic
+        }
+        
     }
     mutating func SetLang(lang: String){
         self.parametersSearchTopic["lang"] = lang
         self.parametersSearchString["lang"] = lang
     }
     
+    //MARK: - Preparing request
     // function preparing request with string topic
     func PrepareSearchStringRequest() -> URLRequest{
         var url = URLComponents(string: baseSearchStringURL)
@@ -66,6 +71,7 @@ struct NewsManager {
         return request
     }
     
+    //MARK: - Sending request and handling response
     // function sending request to API
     func PerformRequest(for request: URLRequest){
         let task = URLSession.shared.dataTask(with: request, completionHandler: HandleRequest(data: response: error:))
@@ -91,7 +97,6 @@ struct NewsManager {
             let decodedData = try jsonDecoder.decode(NewsModel.self, from: dataToDecode)
             delegate?.didFetchNews(data: decodedData)
         } catch{
-            print(error)
             delegate?.didGetError()
         }
     }

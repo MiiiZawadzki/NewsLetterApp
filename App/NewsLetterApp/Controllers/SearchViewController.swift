@@ -13,16 +13,6 @@ class SearchViewController: UIViewController {
     // variable to handle language change
     var isLangEN = true
     
-    // function called when language switch state changed
-    @objc func LanguageSwitchValueChanged(_ switchState: UISwitch) {
-        if switchState.isOn {
-            isLangEN = false
-        } else {
-            isLangEN = true
-        }
-        UpdateUILang()
-    }
-    
     // Go to news list view
     @IBAction func SearchButtonClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "SearchToNewsList", sender: self)
@@ -51,6 +41,7 @@ class SearchViewController: UIViewController {
         SearchTopicButton.layer.cornerRadius = 10
     }
     
+    //MARK: - Changing language section
     // function changing UI elements languages
     func UpdateUILang() {
         SearchWords.placeholder = isLangEN ? "News to search for" : "Wiadomości do wyszukania"
@@ -66,7 +57,13 @@ class SearchViewController: UIViewController {
         UpdateUILang()
     }
     
-    // prepare other views
+    // function called when language switch state changed
+    @objc func LanguageSwitchValueChanged(_ switchState: UISwitch) {
+        isLangEN = switchState.isOn ? false : true
+        UpdateUILang()
+    }
+    
+    //MARK: - Preparing segues for other view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchToNewsList"{
             let VC = segue.destination as! NewsListViewController
@@ -81,7 +78,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-// function to hide keyboard
+//MARK: - Functions to hide keyboard when tapped around
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
      let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(UIViewController.dismissKeyboard))
@@ -93,7 +90,7 @@ extension UIViewController {
     }
 }
 
-// when return key is pressed go to news list view
+//MARK: - Implementing UITextFieldDelegate protocol
 extension UIViewController: UITextFieldDelegate{
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)

@@ -38,25 +38,27 @@ class NewsListViewController: UIViewController {
         
         newsManager.delegate = self
         
-        // if searching with given string perform Request
-        if(vcString){
-            newsManager.SetSearchQParam(topic: topic!)
-            let request = newsManager.PrepareSearchStringRequest()
-            newsManager.PerformRequest(for: request)
-        }
-        // if searching with topic selected from picker view perform Request
-        else{
-            newsManager.SetSearchTopicParam(topic: topic!)
-            let request = newsManager.PrepareSearchTopicRequest()
-            newsManager.PerformRequest(for: request)
-        }
+        //MARK: - Setting up request
         
-        // set table view options
+        // set request search parameters
+        newsManager.SetSearchParam(type: vcString ? "q" : "topic", topic: topic!)
+        
+        // if searching with given string perform Request
+        var request = newsManager.PrepareSearchStringRequest()
+        // if searching with topic selected from picker view perform Request
+        if(!vcString){
+            request = newsManager.PrepareSearchTopicRequest()
+            
+        }
+        newsManager.PerformRequest(for: request)
+        
+        //MARK: - Setting up table view options
         NewsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "ReuseableNewsCell")
         NewsTableView.dataSource = self
         
     }
 }
+//MARK: - Fetching data and detecting errors
 extension NewsListViewController: NewsManagerDelegate{
     // function called when data is fetched
     func didFetchNews(data: NewsModel){
@@ -79,16 +81,14 @@ extension NewsListViewController: NewsManagerDelegate{
             ])
         }
     }
+    
 }
+//MARK: - Creating table view and cells
 extension NewsListViewController: UITableViewDataSource{
     // Return count of NewsModel article
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let safeModel = newsModel{
-            return safeModel.articles.count
-        }
-        else{
-            return 0
-        }
+        return newsModel?.articles.count ?? 0
+
     }
     
     // Return created cells with news data

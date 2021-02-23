@@ -37,7 +37,7 @@ class PickViewController: UIViewController {
         TopicPicker.layer.borderColor = CGColor.init(red: CGFloat(193/255.0), green: CGFloat(230/255.0), blue: CGFloat(220/255.0), alpha: CGFloat(1.0))
     }
     
-    // prepare other views
+    //MARK: - Preparing segues for other view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PickToNewsList"{
             let VC = segue.destination as! NewsListViewController
@@ -50,6 +50,7 @@ class PickViewController: UIViewController {
         }
     }
     
+    //MARK: - Changing language section
     // function changing UI elements languages
     func UpdateUILang() {
         SearchButton.setTitle(lang! == "en" ? "Search" : "Wyszukaj", for: .normal)
@@ -59,7 +60,7 @@ class PickViewController: UIViewController {
     }
 }
 
-// Handle picker view
+//MARK: - Implementing picker view protocols
 extension PickViewController: UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -70,12 +71,6 @@ extension PickViewController: UIPickerViewDataSource{
 }
 extension PickViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if lang == "en"{
-            return topicsEN[row]
-        }
-        else{
-            return topicsPL[row]
-        }
-        
+        return lang == "en" ? topicsEN[row] : topicsPL[row]
     }
 }
