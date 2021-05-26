@@ -1,11 +1,15 @@
+![app banner](http://mzawadzki.com.pl/img/img4.png)
 # NewsLetterApp
-
+![Platforms](https://img.shields.io/badge/Platform-iOS-green.svg?style=flat)
+![Language](https://img.shields.io/badge/Swift-5.0-FA7343.svg?logo=swift&style=flat)
 ## General info
 News browsing native IOS app created for university project.
 
 ## Technologies
 Project is created with:
 * Swift 5
+* UIKit
+* [NewsCatcher News API](https://newscatcherapi.com/)
 
 ## Documentation
 - [PDF file with documentation](./Documentation/NewsLetterApp_Documentation.pdf)
